@@ -4,110 +4,179 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dhar | Advocating Against Puppy Mills</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
+        /* General Styles */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #f9f9f9;
             color: #333;
+            line-height: 1.6;
         }
+
         header {
             background-color: #4caf50;
-            padding: 10px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            padding: 20px;
+            text-align: center;
             color: white;
         }
-        header img {
-            max-height: 60px;
-        }
-        nav {
-            display: flex;
-            gap: 20px;
-        }
-        nav a {
+
+        header nav a {
             color: white;
             text-decoration: none;
+            margin: 0 15px;
             font-weight: bold;
+            font-size: 1.1em;
         }
-        nav a:hover {
+
+        header nav a:hover {
             text-decoration: underline;
         }
+
         .container {
+            max-width: 1100px;
+            margin: 30px auto;
             padding: 20px;
         }
+
         .section {
-            background-color: white;
-            padding: 20px;
-            margin-bottom: 20px;
+            background: #fff;
+            padding: 30px;
+            margin-bottom: 30px;
             border-radius: 8px;
             box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
         }
-        footer {
+
+        h2 {
+            border-bottom: 2px solid #4caf50;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .founders {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .founder {
+            flex: 1;
+            background: #f0f0f0;
+            padding: 15px;
             text-align: center;
-            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .founder img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        footer {
             background-color: #4caf50;
             color: white;
+            text-align: center;
+            padding: 10px;
             position: relative;
             bottom: 0;
             width: 100%;
+        }
+
+        .hidden {
+            display: none;
         }
     </style>
 </head>
 <body>
 
-    <!-- Header Section -->
+    <!-- Header Section with Navigation Links -->
     <header>
-        <div>
-            <!-- Placeholder for the logo -->
-            <img src="logo-placeholder.png" alt="Dhar Logo">
-        </div>
+        <h1>Dhar</h1>
         <nav>
-            <a href="#about-us">About Us</a>
-            <a href="#mission">Our Mission</a>
-            <a href="#how-we-help">How We Help</a>
+            <a href="#" onclick="showPage('about')">About Us</a>
+            <a href="#" onclick="showPage('mission')">Our Mission</a>
+            <a href="#" onclick="showPage('help')">How We Help</a>
         </nav>
     </header>
 
+    <!-- Container for Dynamic Content -->
     <div class="container">
         
         <!-- About Us Section -->
-        <section id="about-us" class="section">
+        <div id="about" class="section">
             <h2>About Us</h2>
             <p>
-                Dhar is a dedicated organization committed to advocating against puppy mills. We work tirelessly to raise awareness, promote humane breeding practices, and support legislative changes to end the cruelty of mass breeding facilities.
+                Dhar was founded in 2020 by a passionate group of animal advocates in San Francisco, California. Our mission is to fight against the cruelty of puppy mills and promote ethical breeding and adoption practices.
             </p>
-        </section>
+            <div class="founders">
+                <div class="founder">
+                    <img src="founder1.jpg" alt="Founder 1">
+                    <h3>Jane Doe</h3>
+                    <p>Co-founder & Director</p>
+                </div>
+                <div class="founder">
+                    <img src="founder2.jpg" alt="Founder 2">
+                    <h3>John Smith</h3>
+                    <p>Co-founder & Outreach Coordinator</p>
+                </div>
+            </div>
+        </div>
 
         <!-- Our Mission Section -->
-        <section id="mission" class="section">
+        <div id="mission" class="section hidden">
             <h2>Our Mission</h2>
             <p>
-                Our mission is to eradicate puppy mills by educating the public about their impact, supporting ethical pet adoption, and pushing for stronger animal welfare laws. We believe in a world where all dogs are treated with the love, care, and respect they deserve.
+                Our mission is to eradicate puppy mills by raising awareness, supporting ethical adoption, and advocating for stronger animal welfare laws. We believe every dog deserves a loving and caring home.
             </p>
-        </section>
+            <img src="mission.jpg" alt="Dogs Playing in a Field">
+        </div>
 
         <!-- How We Help Section -->
-        <section id="how-we-help" class="section">
+        <div id="help" class="section hidden">
             <h2>How We Help</h2>
             <p>
-                Dhar helps by:
-                <ul>
-                    <li>Raising public awareness through campaigns and workshops.</li>
-                    <li>Providing resources for adopting pets from ethical sources.</li>
-                    <li>Supporting victims of puppy mills and helping them find forever homes.</li>
-                    <li>Advocating for stricter animal welfare laws.</li>
-                </ul>
+                At Dhar, we take a multi-faceted approach to fight puppy mills:
             </p>
-        </section>
+            <ul>
+                <li>Organizing public awareness campaigns and educational workshops.</li>
+                <li>Partnering with ethical breeders and adoption centers.</li>
+                <li>Providing resources and support for puppy mill survivors.</li>
+                <li>Lobbying for stronger animal protection laws.</li>
+            </ul>
+            <img src="help.jpg" alt="Volunteers Helping Dogs">
+        </div>
+
     </div>
 
     <!-- Footer Section -->
     <footer>
         <p>&copy; 2024 Dhar | Advocating Against Puppy Mills</p>
     </footer>
+
+    <!-- JavaScript for Dynamic Page Navigation -->
+    <script>
+        function showPage(pageId) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.add('hidden');
+            });
+
+            // Show the selected section
+            document.getElementById(pageId).classList.remove('hidden');
+        }
+    </script>
 
 </body>
 </html>
